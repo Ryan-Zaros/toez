@@ -1,23 +1,44 @@
-import logo from './logo.svg';
+import logo from './logo.jpeg';
+import Toe from './components/Toe';
+import LargeToe from './components/LargeToe';
+import SmallToe from './components/SmallToe';
+import About from './components/About';
+import Splash from './components/Splash';
 import './App.css';
+import { Nav, Navbar, Container } from 'react-bootstrap';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Welcome to Toez!
-        </p>
-        <a
-          className="App-link"
-          href="https://www.google.com/search?q=toes&sxsrf=APq-WBsNJtLNLlYcPFtqs9lA7BFoKQ8t1A:1647293248171&source=lnms&tbm=isch&sa=X&ved=2ahUKEwi2qpfHxcb2AhWYqXIEHWqOBCMQ_AUoAXoECAIQAw&biw=1440&bih=696&dpr=2"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Your toes. Hand them over.
-        </a>
-      </header>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand>
+            <img
+            alt=""
+            src={logo}
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+            />{' '}
+            Toez</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="http://friendly-bohr-afe2a8.netlify.app/">Home</Nav.Link>
+            <Nav.Link href="http://friendly-bohr-afe2a8.netlify.app/large-toe">Large Toe</Nav.Link>
+            <Nav.Link href="http://friendly-bohr-afe2a8.netlify.app/small-toe">Small Toe</Nav.Link>
+            <Nav.Link href="http://friendly-bohr-afe2a8.netlify.app/about">About</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Splash />} />
+          <Route path='/toe' element={<Toe />} />
+          <Route path='/large-toe' element={<LargeToe />} />
+          <Route path='/small-toe' element={<SmallToe />} />
+          <Route path='/about' element={<About />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
