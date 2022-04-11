@@ -1,17 +1,21 @@
 import logo from './logo.jpeg';
-import Toe from './components/Toe';
-import LargeToe from './components/LargeToe';
-import SmallToe from './components/SmallToe';
-import About from './components/About';
 import Splash from './components/Splash';
 import './App.css';
 import { Nav, Navbar, Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from "react";
+import Header from "./components/Header/Header";
+import Card from "./components/Card/Card";
+import SwipeButtons from "./components/SwipeButtons/SwipeButtons";
+import Chats from "./components/Chats/Chats";
+import ChatScreen from "./components/ChatScreen/ChatScreen";
+
+// Netlify host URL: http://friendly-bohr-afe2a8.netlify.app/
 
 function App() {
   return (
     <div className="App">
-      <Navbar bg="dark" variant="dark">
+      {/* <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand>
             <img
@@ -23,10 +27,10 @@ function App() {
             />{' '}
             Toez</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="http://friendly-bohr-afe2a8.netlify.app/">Home</Nav.Link>
-            <Nav.Link href="http://friendly-bohr-afe2a8.netlify.app/large-toe">Large Toe</Nav.Link>
-            <Nav.Link href="http://friendly-bohr-afe2a8.netlify.app/small-toe">Small Toe</Nav.Link>
-            <Nav.Link href="http://friendly-bohr-afe2a8.netlify.app/about">About</Nav.Link>
+            <Nav.Link href="http:localhost:3000">Home</Nav.Link>
+            <Nav.Link href="http:localhost:3000/large-toe">Large Toe</Nav.Link>
+            <Nav.Link href="http:localhost:3000/small-toe">Small Toe</Nav.Link>
+            <Nav.Link href="http:localhost:3000/about">About</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -37,6 +41,16 @@ function App() {
           <Route path='/large-toe' element={<LargeToe />} />
           <Route path='/small-toe' element={<SmallToe />} />
           <Route path='/about' element={<About />} />
+        </Routes>
+      </Router> */}
+      <Router>
+        <Routes>
+          <Route path="/chat/:person" element={<><Header backButton="/chat" /><ChatScreen/></>}>
+          </Route>
+          <Route path="/chat" element={<><Header backButton="/" /><Chats /></>}>
+          </Route>
+          <Route path="/" element={<><Header /><Card /><SwipeButtons /></>}>
+          </Route>
         </Routes>
       </Router>
     </div>
