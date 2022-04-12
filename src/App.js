@@ -1,7 +1,4 @@
-import logo from './logo.jpeg';
-import Splash from './components/Splash';
 import './App.css';
-import { Nav, Navbar, Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import React from "react";
 import Header from "./components/Header/Header";

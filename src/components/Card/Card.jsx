@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import TinderCard from "react-tinder-card";
+import Cards from "react-tinder-card";
 import "./Card.css";
 import database from "./firebase";
 
@@ -20,9 +20,9 @@ function Card() {
 
   return (
     <div>
-      <div className="tinderCards__cardContainer">
+      <div className="card__cardContainer">
         {people.map((person) => (
-          <TinderCard
+          <Cards
             className="swipe"
             key={person.name}
             preventSwipe={["up", "down"]}
@@ -33,7 +33,7 @@ function Card() {
             >
               <h3>{person.name}</h3>
             </div>
-          </TinderCard>
+          </Cards>
         ))}
       </div>
     </div>
